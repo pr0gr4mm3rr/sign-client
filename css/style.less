@@ -1,0 +1,53 @@
+@base: #00274c;
+@hilite: #ffcb05;
+@back: #cccccc;
+
+@good: #00ff00;
+@warn: #ff8800;
+@bad:  #ff0000;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: @base;
+}
+
+header {
+  //width: 100%;
+  min-height: 4em;
+  background-color: @hilite;
+  padding: 1em;
+}
+
+section {
+  position: relative;
+  overflow: hidden;
+  margin: 2em;
+
+  background-color: @back;
+
+  padding: 1em;
+
+  border-radius: 1em;
+}
+
+.box {
+  background-color: @hilite;
+  padding: 8px;
+
+  border-radius: 1em;
+  position: relative;
+  overflow: hidden;
+}
+
+#tempname {
+  width: 12em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: consolas;
+}

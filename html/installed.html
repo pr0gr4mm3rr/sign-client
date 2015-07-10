@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Testing</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+  var remote = require('remote');
+  var cwindow = remote.getCurrentWindow();
+
+  window.addEventListener('load', function() {
+    document.getElementById('tempname').innerText = cwindow.config.get('tempname');
+  })
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Sign Test Installed!</h1>
+  </header>
+  <section>
+    <div style="float:right;margin:1em">
+      <!--p>Your temporary name is</p-->
+      <span id="tempname" class="box"></span>
+    </div>
+
+    <div style="margin:1em;text-align: center">
+      <p>You must now set up a name and job on the manager.</p>
+      <p>You're temporary name can be found on the right.</p>
+    </div>
+
+
+  </section>
+</body>
+</html>
