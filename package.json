@@ -1,5 +1,5 @@
 {
-  "name": "electron-test",
+  "name": "sign-client",
   "version": "1.0.0",
   "description": "Testing electron",
   "main": "main.js",

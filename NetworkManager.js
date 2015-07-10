@@ -13,9 +13,13 @@ NetworkManager.connect = function(cb) {
   var host = config.get('net.host');
   var port = config.get('net.port');
 
-  conn = new ws('ws://' + host + ':' + port);
-
-  conn.on('open', cb);
+  conn = new ws('ws://' + host + ':' + port + '/ws');
+  console.log('connecting', 'ws://' + host + ':' + port + '/ws');
+  conn.on('open', function onConnect() {
+    console.log('connected!');
+    if (typeof cb === 'function')
+      cb();
+  });
   conn.on('error', errorHandler);
   conn.on('message', messageHandler);
 };
@@ -76,4 +80,9 @@ function messageHandler(msg) {
   cbs.forEach(function(cb) {
     cb(data);
   });
+};
+
+NetworkManager.call = function(cmd, data) {
+  data.cmd = cmd;
+  conn.send(JSON.stringify(data));
 };

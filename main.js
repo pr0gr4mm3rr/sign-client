@@ -7,7 +7,6 @@ var moniker = require('moniker').generator([
 ]);
 
 var NetworkManager = require('./NetworkManager');
-NetworkManager.init();
 
 var config = require('./config');
 
@@ -49,7 +48,7 @@ app.on('ready', function() {
     mainWindow.loadUrl('file://' + __dirname + '/html/installed.html');
 
     // Wait for a job from the server
-    waitForJob();
+    NetworkManager.connect(waitForJob);
   } else {
 
     // Check what we should be displaying from server
@@ -76,4 +75,7 @@ function waitForJob() {
     name: config.get('tempname')
   });
 
+  NetworkManager.once('initjob', function(data) {
+    console.log('We got a job!');
+  });
 };
